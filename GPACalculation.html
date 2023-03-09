@@ -11,34 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>GPA Calculation</title>
 
-    <script>
-        //This function is called when the user clicks on the calcGPA button
-        function calcGPA() {
-            //Extract the values from the HTML inputs by their assigned id and assigns them to variables
-            //The value extracted is converted from a string to a float/decimal
-            fIS201 = parseFloat(document.getElementById("is201Grade").value);
-            fACC200 = parseFloat(document.getElementById("acc200Grade").value);
-            fIS303 = parseFloat(document.getElementById("is303Grade").value);
-            fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
-            fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
-            fEssay = parseInt(document.getElementById("essay").value);
-
-            //calculates new gpa
-            fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (
-                fEssay * .05)).toFixed(2);
-
-            //Display the calculated GPA to the HTML label named "coreGPA"
-            document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
-        }
-        // This function creates fireworks if the GPA is high enough
-        function fireworks()
-        {
-            if (fFinalGPA > 3.7)
-            {
-                document.getElementById("firework").disabled = false;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -129,6 +101,33 @@
     </main>
 </body>
 <script>
+     //This function is called when the user clicks on the calcGPA button
+    function calcGPA() {
+        //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+        //The value extracted is converted from a string to a float/decimal
+        fIS201 = parseFloat(document.getElementById("is201Grade").value);
+        fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+        fIS303 = parseFloat(document.getElementById("is303Grade").value);
+        fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+        fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+        fEssay = parseInt(document.getElementById("essay").value);
+
+        //calculates new gpa
+        fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (
+            fEssay * .05)).toFixed(2);
+
+        //Display the calculated GPA to the HTML label named "coreGPA"
+        document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+    }
+    // This function creates fireworks if the GPA is high enough
+    function fireworks()
+    {
+        if (fFinalGPA > 3.7)
+        {
+            document.getElementById("firework").disabled = false;
+        }
+    }
+        
     const successMessage = document.querySelector('.success-message')
     // Get the form and submit button elements
     const form = document.querySelector('form');
