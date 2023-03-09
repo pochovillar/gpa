@@ -45,7 +45,7 @@
             <form name="GPA" class="color" ;>
                 <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
                 <label for="iS201">IS 201 Grade</label>
-                <select name="iS201Grade" id="is201Grade">
+                <select name="iS201Grade" id="is201Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -58,10 +58,10 @@
                     <option value="1.0">D</option>
                     <option value="0.7">D-</option>
                     <option value="0.0">E</option>
-                 
+
                 </select>
                 <label for="acc200">ACC 200 Grade</label>
-                <select name="acc200Grade" id="acc200Grade">
+                <select name="acc200Grade" id="acc200Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -74,10 +74,10 @@
                     <option value="1.0">D</option>
                     <option value="0.7">D-</option>
                     <option value="0.0">E</option>
-                 
+
                 </select>
                 <label for="IS303">IS 303 Grade</label>
-                <select name="iS303Grade" id="is303Grade">
+                <select name="iS303Grade" id="is303Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -92,17 +92,17 @@
                     <option value="0.0">E</option>
                 </select>
                 <label for="essayScore">Essay Score</label>
-                <select name="essay" id="essay">
+                <select name="essay" id="essay" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
                 <label for="overallGPA">Overall GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA">
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" required>
 
                 <label for="last30GPA">Last 30 GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="last30GPA">
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="last30GPA" required>
 
                 <!--insert html tag for displaying the calculated GPA -->
             </form>
@@ -125,17 +125,19 @@
     // Get the form and submit button elements
     const form = document.querySelector('form');
     const submitBtn = document.querySelector('a[type="button"]');
+    const section = document.querySelector('.section')
 
     // Add an event listener to the submit button
     submitBtn.addEventListener('click', (event) => {
-    // Prevent the form from submitting normally
-    event.preventDefault();
+        // Prevent the form from submitting normally
+        event.preventDefault();
 
-    // Hide the form
-    form.classList.add('hidden')
-    successMessage.classList.remove('hidden')
-    submitBtn 
-    
+        // Hide the form
+        form.classList.add('hidden')
+        successMessage.classList.remove('hidden')
+        submitBtn.classList.add('hidden')
+        section.classList.add('hidden')
+
     });
 </script>
 
