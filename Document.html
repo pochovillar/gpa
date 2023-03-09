@@ -28,6 +28,14 @@
             //Display the calculated GPA to the HTML label named "coreGPA"
             document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
         }
+
+        function fireworks()
+        {
+            if (fFinalGPA > 3.7)
+            {
+                document.getElementById("firework").disabled = true;
+            }
+        }
     </script>
 </head>
 <body>
