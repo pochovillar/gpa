@@ -18,13 +18,13 @@
         <p>GPA CALCULATION</p>
     </header>
     <main>
-        <label class="success-message hidden" id="coreGPA"></label>
+        
         <p class="error-message hidden">不好意思，我们做错了。
         </p>
         <div class="section">
             <form name="GPA" class="color" ;>
                 <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
-                <label for="iS201">IS 201 Grade</label>
+                <label for="is201Grade">IS 201 Grade</label>
                 <select name="iS201Grade" id="is201Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
@@ -40,7 +40,7 @@
                     <option value="0.0">E</option>
 
                 </select>
-                <label for="acc200">ACC 200 Grade</label>
+                <label for="acc200Grade">ACC 200 Grade</label>
                 <select name="acc200Grade" id="acc200Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
@@ -56,8 +56,8 @@
                     <option value="0.0">E</option>
 
                 </select>
-                <label for="IS303">IS 303 Grade</label>
-                <select name="iS303Grade" id="is303Grade" required>
+                <label for="is303Grade">IS 303 Grade</label>
+                <select name="is303Grade" id="is303Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -97,8 +97,24 @@
                 </a>
             </div>
         </div>
-        <label id="coreGPA"></label>
+        <label class="success-message hidden" id="coreGPA"></label>
     </main>
+    
+    <div class="confetti-wrapper hidden">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
 </body>
 <script>
      //This function is called when the user clicks on the calcGPA button
@@ -124,7 +140,8 @@
     {
         if (fFinalGPA > 3.7)
         {
-            document.getElementById("firework").disabled = false;
+            const confetti = document.querySelector('.confetti-wrapper')
+            confetti.classList.remove('hidden')
         }
     }
         
