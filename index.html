@@ -1,114 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Heroic Features - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">GPA Calculation</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                    </ul>
-                </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>GPA Calculation</title>
+
+</head>
+
+<body>
+    <header>
+        <p>GPA CALCULATION</p>
+    </header>
+    <main>
+
+        <p class="error-message hidden">不好意思，我们做错了。
+        </p>
+        <div class="section">
+            <form name="GPA" class="color" ;>
+                <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
+                <label for="is201Grade">IS 201 Grade</label>
+                <select name="iS201Grade" id="is201Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+
+                </select>
+                <label for="acc200Grade">ACC 200 Grade</label>
+                <select name="acc200Grade" id="acc200Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+
+                </select>
+                <label for="is303Grade">IS 303 Grade</label>
+                <select name="is303Grade" id="is303Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+                </select>
+                <label for="essayScore">Essay Score</label>
+                <select name="essay" id="essay" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <label for="overallGPA">Overall GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" required>
+
+                <label for="last30GPA">Last 30 GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="last30GPA" required>
+
+                <!--insert html tag for displaying the calculated GPA -->
+            </form>
+            <div class="martin">
+
+                <a type="button" onclick="calcGPA(); fireworks()">Calculate GPA
+                    <svg viewbox="1.2 2.1 22 21">
+                        <path
+                            d="M11.704 22.098a1.48 1.48 0 01-1.02-.386 1.38 1.38 0 01-.413-.996c0-.375.146-.721.415-.978.411-.397 5.078-4.857 6.494-6.21H2.706c-1.035 0-1.506-.726-1.506-1.4 0-.679.471-1.406 1.506-1.406h14.472c-1.42-1.353-6.02-5.736-6.497-6.213-.292-.291-.445-.635-.442-.996a1.37 1.37 0 01.447-.975c.501-.479 1.354-.681 2.037.003.561.56 9.765 9.334 9.856 9.423l.173.163-.172.162c-.093.09-9.407 8.985-9.86 9.422-.264.258-.639.387-1.016.387">
+                        </path>
+                    </svg>
+                </a>
             </div>
-        </nav>
-        <!-- Header-->
-        <header class="py-5">
-            <div class="container px-lg-5">
-                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-                    <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">A warm welcome!</h1>
-                        <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
-                        <a class="btn btn-primary btn-lg" href="#!">Call to action</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Page Content-->
-        <section class="pt-4">
-            <div class="container px-lg-5">
-                <!-- Page Features-->
-                <div class="row gx-lg-5">
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
-                                <h2 class="fs-4 fw-bold">Fresh new layout</h2>
-                                <p class="mb-0">With Bootstrap 5, we've created a fresh new layout for this template!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
-                                <h2 class="fs-4 fw-bold">Free to download</h2>
-                                <p class="mb-0">As always, Start Bootstrap has a powerful collectin of free templates.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
-                                <h2 class="fs-4 fw-bold">Jumbotron hero header</h2>
-                                <p class="mb-0">The heroic part of this template is the jumbotron hero header!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-bootstrap"></i></div>
-                                <h2 class="fs-4 fw-bold">Feature boxes</h2>
-                                <p class="mb-0">We've created some custom feature boxes using Bootstrap icons!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-code"></i></div>
-                                <h2 class="fs-4 fw-bold">Simple clean code</h2>
-                                <p class="mb-0">We keep our dependencies up to date and squash bugs as they come!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4 mb-5">
-                        <div class="card bg-light border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-patch-check"></i></div>
-                                <h2 class="fs-4 fw-bold">A name you trust</h2>
-                                <p class="mb-0">Start Bootstrap has been the leader in free Bootstrap templates since 2013!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </div>
+        <label class="success-message hidden" id="coreGPA"></label>
+        <label class="good-job hidden">Your chances are very good!</label>
+    </main>
+
+    <div class="confetti-wrapper hidden">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+</body>
+<script>
+    //This function is called when the user clicks on the calcGPA button
+    function calcGPA() {
+        //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+        //The value extracted is converted from a string to a float/decimal
+        fIS201 = parseFloat(document.getElementById("is201Grade").value);
+        fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+        fIS303 = parseFloat(document.getElementById("is303Grade").value);
+        fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+        fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+        fEssay = parseInt(document.getElementById("essay").value);
+
+        //calculates new gpa
+        fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (
+            fEssay * .05)).toFixed(2);
+
+        //Display the calculated GPA to the HTML label named "coreGPA"
+        document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+    }
+    // This function creates fireworks if the GPA is high enough
+    function fireworks() {
+        if (fFinalGPA > 3.7) {
+            const confetti = document.querySelector('.confetti-wrapper')
+            const goodJob = document.querySelector('.good-job')
+            confetti.classList.remove('hidden')
+            goodJob.classList.remove('hidden')
+        }
+    }
+
+    const successMessage = document.querySelector('.success-message')
+    
+    // Get the form and submit button elements
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('a[type="button"]');
+    const section = document.querySelector('.section')
+
+    // Add an event listener to the submit button
+    submitBtn.addEventListener('click', (event) => {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Hide the form
+        form.classList.add('hidden')
+        successMessage.classList.remove('hidden')
+        submitBtn.classList.add('hidden')
+        section.classList.add('hidden')
+
+    });
+</script>
+
 </html>
