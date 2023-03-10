@@ -18,7 +18,7 @@
         <p>GPA CALCULATION</p>
     </header>
     <main>
-        
+
         <p class="error-message hidden">不好意思，我们做错了。
         </p>
         <div class="section">
@@ -99,7 +99,7 @@
         </div>
         <label class="success-message hidden" id="coreGPA"></label>
     </main>
-    
+
     <div class="confetti-wrapper hidden">
         <div class="confetti"></div>
         <div class="confetti"></div>
@@ -117,7 +117,7 @@
     </div>
 </body>
 <script>
-     //This function is called when the user clicks on the calcGPA button
+    //This function is called when the user clicks on the calcGPA button
     function calcGPA() {
         //Extract the values from the HTML inputs by their assigned id and assigns them to variables
         //The value extracted is converted from a string to a float/decimal
@@ -136,15 +136,13 @@
         document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
     }
     // This function creates fireworks if the GPA is high enough
-    function fireworks()
-    {
-        if (fFinalGPA > 3.7)
-        {
+    function fireworks() {
+        if (fFinalGPA > 3.7) {
             const confetti = document.querySelector('.confetti-wrapper')
             confetti.classList.remove('hidden')
         }
     }
-        
+
     const successMessage = document.querySelector('.success-message')
     // Get the form and submit button elements
     const form = document.querySelector('form');
