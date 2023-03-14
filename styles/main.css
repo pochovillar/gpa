@@ -9,6 +9,7 @@
 
 * {
     box-sizing: border-box;
+    
 }
 
 
@@ -46,7 +47,8 @@ header {
     background-image: linear-gradient(#fff, #d7e8f2 );
     width: 100%;
     margin-bottom: 3rem;
-    
+    position: f;
+    line-height: 3.2rem;
 }
 
 form {
@@ -135,23 +137,25 @@ select,input {
     color: #d7e8f2;
     font-size: 1rem;
     transition: transform 700ms;
+    border: white;
 }
 
 select:hover, input:hover {
-    border: white;
+    border: 1px solid var(--pale-cerulean);
     transform: scale(0.95);
     background-color: white;
     color: var(--burnt-sierra)
 }
 
-select::selection, input::selection{
+select::selection, input::selection, input:focus, select:focus, input:active, select:active{
     background-color: white;
-    color: var(--burnt-sierra)
+    color: var(--burnt-sierra);
+    border: 1px solid var(--prussian-blue);
 }
 
 label {
     font-weight: 1100;
-    font-size: 1.2rem;
+    font-size: 1.2rem;  
     padding: 0.3rem;
 }
 
@@ -198,11 +202,14 @@ label {
 
 #coreGPA {
     font-size: 2rem;
-
+    line-height: 2.2rem;
+    text-align: center;
 }
 
-body {
-    background-color: #111827;
+.good-job {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .confetti-wrapper {
