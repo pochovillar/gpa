@@ -14,16 +14,23 @@
 </head>
 
 <body>
-  <!--Main header-->  
+    <!--Main header-->
     <header>
         <p>GPA CALCULATION</p>
     </header>
     <main>
-<!-- error message for fun-->
+        <!-- error message for fun-->
         <p class="error-message hidden">不好意思，我们做错了。
         </p>
         <div class="section">
             <form name="GPA" class="color" ;>
+                <!--letting the max and min grade be between 0 and 4.0-->
+                <label for="overallGPA">Overall GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" inputmode="numeric"
+                    required>
+
+                <label for="last30GPA">Last 30 GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" id="last30GPA" inputmode="numeric" required>
                 <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
                 <label for="is201Grade">IS 201 Grade</label>
                 <!--converting grades into numbers for calculation-->
@@ -61,7 +68,7 @@
                 </select>
                 <label for="is303Grade">IS 303 Grade</label>
                 <select name="is303Grade" id="is303Grade" required>
-                <!--converting grades into numbers for calculation-->
+                    <!--converting grades into numbers for calculation-->
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -77,18 +84,13 @@
                 </select>
                 <label for="essayScore">Essay Score</label>
                 <select name="essay" id="essay" required>
-                <!--converting score into numbers for calculation-->
+                    <!--converting score into numbers for calculation-->
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                <!--letting the max and min grade be between 0 and 4.0-->
-                <label for="overallGPA">Overall GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" inputmode="numeric" required>
-
-                <label for="last30GPA">Last 30 GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1"  id="last30GPA" inputmode="numeric" required>
+                
 
                 <!--insert html tag for displaying the calculated GPA -->
             </form>
@@ -96,7 +98,7 @@
             <div class="martin">
 
                 <a type="button" onclick="calcGPA(); fireworks()">Calculate GPA
-                    <svg viewbox = "1.2 2.1 22 21">
+                    <svg viewbox="1.2 2.1 22 21">
                         <path
                             d="M11.704 22.098a1.48 1.48 0 01-1.02-.386 1.38 1.38 0 01-.413-.996c0-.375.146-.721.415-.978.411-.397 5.078-4.857 6.494-6.21H2.706c-1.035 0-1.506-.726-1.506-1.4 0-.679.471-1.406 1.506-1.406h14.472c-1.42-1.353-6.02-5.736-6.497-6.213-.292-.291-.445-.635-.442-.996a1.37 1.37 0 01.447-.975c.501-.479 1.354-.681 2.037.003.561.56 9.765 9.334 9.856 9.423l.173.163-.172.162c-.093.09-9.407 8.985-9.86 9.422-.264.258-.639.387-1.016.387">
                         </path>
@@ -108,7 +110,7 @@
         <!--message if GPA is above 3.7-->
         <label class="good-job hidden">Your chances are very good!</label>
     </main>
-<!-- extra javascript for gpa above 3.7-->
+    <!-- extra javascript for gpa above 3.7-->
     <div class="confetti-wrapper hidden">
         <div class="confetti"></div>
         <div class="confetti"></div>
