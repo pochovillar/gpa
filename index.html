@@ -14,17 +14,19 @@
 </head>
 
 <body>
+  <!--Main header-->  
     <header>
         <p>GPA CALCULATION</p>
     </header>
     <main>
-
+<!-- error message for fun-->
         <p class="error-message hidden">不好意思，我们做错了。
         </p>
         <div class="section">
             <form name="GPA" class="color" ;>
                 <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
                 <label for="is201Grade">IS 201 Grade</label>
+                <!--converting grades into numbers for calculation-->
                 <select name="iS201Grade" id="is201Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
@@ -42,6 +44,7 @@
                 </select>
                 <label for="acc200Grade">ACC 200 Grade</label>
                 <select name="acc200Grade" id="acc200Grade" required>
+                    <!--converting grades into numbers for calculation-->
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -58,6 +61,7 @@
                 </select>
                 <label for="is303Grade">IS 303 Grade</label>
                 <select name="is303Grade" id="is303Grade" required>
+                <!--converting grades into numbers for calculation-->
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -73,11 +77,13 @@
                 </select>
                 <label for="essayScore">Essay Score</label>
                 <select name="essay" id="essay" required>
+                <!--converting score into numbers for calculation-->
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
+                <!--letting the max and min grade be between 0 and 4.0-->
                 <label for="overallGPA">Overall GPA</label>
                 <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" required>
 
@@ -86,6 +92,7 @@
 
                 <!--insert html tag for displaying the calculated GPA -->
             </form>
+            <!-- use of CSS and an SVG to create the button-->
             <div class="martin">
 
                 <a type="button" onclick="calcGPA(); fireworks()">Calculate GPA
@@ -98,9 +105,10 @@
             </div>
         </div>
         <label class="success-message hidden" id="coreGPA"></label>
+        <!--message if GPA is above 3.7-->
         <label class="good-job hidden">Your chances are very good!</label>
     </main>
-
+<!-- extra javascript for gpa above 3.7-->
     <div class="confetti-wrapper hidden">
         <div class="confetti"></div>
         <div class="confetti"></div>
