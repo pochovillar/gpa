@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>GPA Calculation</title>
+
+</head>
+
+<body>
+    <header>
+        <p>GPA CALCULATION</p>
+    </header>
+    <main>
+        
+        <p class="error-message hidden">不好意思，我们做错了。
+        </p>
+        <div class="section">
+            <form name="GPA" class="color" ;>
+                <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
+                <label for="is201Grade">IS 201 Grade</label>
+                <select name="iS201Grade" id="is201Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+
+                </select>
+                <label for="acc200Grade">ACC 200 Grade</label>
+                <select name="acc200Grade" id="acc200Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+
+                </select>
+                <label for="is303Grade">IS 303 Grade</label>
+                <select name="is303Grade" id="is303Grade" required>
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.4">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.4">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C</option>
+                    <option value="1.4">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.7">D-</option>
+                    <option value="0.0">E</option>
+                </select>
+                <label for="essayScore">Essay Score</label>
+                <select name="essay" id="essay" required>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
+                <label for="overallGPA">Overall GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" required>
+
+                <label for="last30GPA">Last 30 GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="last30GPA" required>
+
+                <!--insert html tag for displaying the calculated GPA -->
+            </form>
+            <div class="martin">
+
+                <a type="button" onclick="calcGPA(); fireworks()">Calculate GPA
+                    <svg viewbox="1.2 2.1 22 21">
+                        <path
+                            d="M11.704 22.098a1.48 1.48 0 01-1.02-.386 1.38 1.38 0 01-.413-.996c0-.375.146-.721.415-.978.411-.397 5.078-4.857 6.494-6.21H2.706c-1.035 0-1.506-.726-1.506-1.4 0-.679.471-1.406 1.506-1.406h14.472c-1.42-1.353-6.02-5.736-6.497-6.213-.292-.291-.445-.635-.442-.996a1.37 1.37 0 01.447-.975c.501-.479 1.354-.681 2.037.003.561.56 9.765 9.334 9.856 9.423l.173.163-.172.162c-.093.09-9.407 8.985-9.86 9.422-.264.258-.639.387-1.016.387">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <label class="success-message hidden" id="coreGPA"></label>
+    </main>
+    
+    <div class="confetti-wrapper hidden">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+</body>
+<script>
+     //This function is called when the user clicks on the calcGPA button
+    function calcGPA() {
+        //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+        //The value extracted is converted from a string to a float/decimal
+        fIS201 = parseFloat(document.getElementById("is201Grade").value);
+        fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+        fIS303 = parseFloat(document.getElementById("is303Grade").value);
+        fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+        fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+        fEssay = parseInt(document.getElementById("essay").value);
+
+        //calculates new gpa
+        fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (
+            fEssay * .05)).toFixed(2);
+
+        //Display the calculated GPA to the HTML label named "coreGPA"
+        document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+    }
+    // This function creates fireworks if the GPA is high enough
+    function fireworks()
+    {
+        if (fFinalGPA > 3.7)
+        {
+            const confetti = document.querySelector('.confetti-wrapper')
+            confetti.classList.remove('hidden')
+        }
+    }
+        
+    const successMessage = document.querySelector('.success-message')
+    // Get the form and submit button elements
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('a[type="button"]');
+    const section = document.querySelector('.section')
+
+    // Add an event listener to the submit button
+    submitBtn.addEventListener('click', (event) => {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Hide the form
+        form.classList.add('hidden')
+        successMessage.classList.remove('hidden')
+        submitBtn.classList.add('hidden')
+        section.classList.add('hidden')
+
+    });
+</script>
+
+</html>
