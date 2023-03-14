@@ -25,17 +25,11 @@
         </p>
         <div class="section">
             <form name="GPA" class="color" ;>
-                <!--letting the max and min grade be between 0 and 4.0-->
-                <label for="overallGPA">Overall GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1" autofocus id="overallGPA" inputmode="numeric"
-                    required>
-
-                <label for="last30GPA">Last 30 GPA</label>
-                <input type="number" min="0.0" max="4.0" step="0.1" id="last30GPA" inputmode="numeric" required>
+               
                 <!--insert html tags for drop down menus for each prerequisite class (IS 201, ACC 200, & IS 303) & essay score -->
                 <label for="is201Grade">IS 201 Grade</label>
                 <!--converting grades into numbers for calculation-->
-                <select name="iS201Grade" id="is201Grade" required>
+                <select name="iS201Grade" autofocus id="is201Grade" required>
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
                     <option value="3.4">B+</option>
@@ -91,7 +85,13 @@
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
-                
+                 <!--letting the max and min grade be between 0 and 4.0-->
+                 <label for="overallGPA">Overall GPA</label>
+                 <input type="number" min="0.0" max="4.0" step="0.1" id="overallGPA" inputmode="numeric"
+                     required>
+ 
+                 <label for="last30GPA">Last 30 GPA</label>
+                 <input type="number" min="0.0" max="4.0" step="0.1" id="last30GPA" inputmode="numeric" required>
 
                 <!--insert html tag for displaying the calculated GPA -->
             </form>
