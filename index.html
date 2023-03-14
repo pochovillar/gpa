@@ -80,12 +80,17 @@
                 <label for="essayScore">Essay Score</label>
                 <select name="essay" id="essay" required>
                     <!--converting score into numbers for calculation-->
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
                     <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
                 </select>
+                <!--letting the max and min grade be between 0 and 4.0-->
+                <label for="overallGPA">Overall GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" id="overallGPA" inputmode="numeric" required>
 
+                <label for="last30GPA">Last 30 GPA</label>
+                <input type="number" min="0.0" max="4.0" step="0.1" id="last30GPA" inputmode="numeric" required>
 
                 <!--insert html tag for displaying the calculated GPA -->
             </form>
