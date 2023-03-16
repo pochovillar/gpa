@@ -1,8 +1,13 @@
+Tyler Sheffield, Martin Villar, Brendan Bundy, Hannah Johnson, Hannah Cameron, Savannah Hogan
+
+
+
+
 # gpa
 html gpa core
 Modify the Core GPA program to use an HTML form.
 
- 
+
 
 Use the following HTML file to help you get started. This file includes some commented JavaScript to do the calculation of the GPA.
 
@@ -44,3 +49,5 @@ Put a button on the HTML form with the text of "Calculate GPA".
  
 
 Make sure you have appropriate comments. Only 1 PER GROUP should be uploaded.
+
+
